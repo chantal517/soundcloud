@@ -1,6 +1,6 @@
 SC.initialize({
-    client_id: '078f0fc585f0f320885eb514c564df8b',
-    redirect_uri: 'http://babbage.cs.missouri.edu/~cflzr3/soundcloud/callback.html'
+    client_id: 'd2fdda6863d39e63a2e46ad1eca3e8e3',
+    redirect_uri: 'http://saturn-uh8y8ku0.cloudapp.net/soundcloud/callback.html'
 });
 
 //console.log("GEGFD");
