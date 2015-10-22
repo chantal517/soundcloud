@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 <script src="//connect.soundcloud.com/sdk.js"></script>
+	 <script src="script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('a.connect').click(function(e) {
+    e.preventDefault();
+SC.connect(function(){
+    SC.get('/me', function(me){
+        $('#username').html(me.username);
+    
+    });
+});
+  });
+  //console.log("hry");
+   
+  SC.get('/tracks/194949699', function(track) {
+  SC.oEmbed(track.permalink_url, document.getElementById('player'));
+});
+});
+SC.get('/tracks', { genres: 'R&B & Soul' }, function(tracks) {
+    $(tracks).each(function(index, track) {
+   $('#results').append($('<li></li>').html(track.title + ' - ' + track.genre));
+     });
+  });
+</script>
+	</head>
+	<body>
+	<p> You can Login to Your Sound Cloud account by clicking the button below</p>
+	 <a href="#" class="connect">
+		<img src="http://connect.soundcloud.com/2/btn-connect-sc-s.png">
+	</a>
+	<p>Hello, <span id="username"></span> you can view a song below</p>
+	 <div id="player" style=" width: 60%"></div>
+	 <p> These are the top songs from the "R&B & Soul" Genre</p>
+	 <ul id="results"></ul>
+	
+	</body>
+</html>
